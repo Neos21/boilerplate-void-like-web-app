@@ -1,0 +1,71 @@
+{
+  "name": "boilerplate-void-like-web-app",
+  "description": "Boilerplate Void Like Web App",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev --host",
+    "fmt": "oxfmt .",
+    "fmt:check": "oxfmt --check .",
+    "lint": "oxlint --fix .",
+    "lint:check": "oxlint .",
+    "check": "cf workers types && tsc",
+    "test": "vitest run --coverage",
+    "test:watch": "vitest watch",
+    "test:bench": "vitest bench --run --reporter verbose",
+    "build": "npm run check && vite build",
+    "preview": "vite preview --host",
+    "deploy": "cf deploy --prebuilt --mode production",
+    "serve": "node ./scripts/serve.mjs",
+    "cf": "cf",
+    "oxfmt": "oxfmt",
+    "oxlint": "oxlint",
+    "tsc": "tsc",
+    "vite": "vite",
+    "vitest": "vitest"
+  },
+  "author": "Neo <neos21@gmail.com> (https://neos21.net/)",
+  "license": "MIT",
+  "homepage": "https://github.com/Neos21/boilerplate-void-like-web-app#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Neos21/boilerplate-void-like-web-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Neos21/boilerplate-void-like-web-app/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/Neos21"
+  },
+  "dependencies": {
+    "hono": "4.13.13",
+    "ky": "2.2.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-router": "8.5.0",
+    "zod": "4.6.7",
+    "zustand": "5.0.16"
+  },
+  "devDependencies": {
+    "@cloudflare/build-output-utils": "0.9.4",
+    "@cloudflare/vite-plugin": "2.0.0-beta.v.4",
+    "@tailwindcss/vite": "4.3.3",
+    "@types/node": "26.6.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "@vitest/coverage-v8": "5.0.5",
+    "cf": "1.0.0-beta.20",
+    "daisyui": "5.7.50",
+    "happy-dom": "21.0.4",
+    "miniflare": "5.20261019.2-beta",
+    "oxfmt": "0.74.0",
+    "oxlint": "1.89.0",
+    "tailwindcss": "4.3.3",
+    "typescript": "7.0.2",
+    "vite": "8.3.5",
+    "vitest": "5.0.5",
+    "wrangler": "4.152.0"
+  }
+}

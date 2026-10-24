@@ -1,0 +1,24 @@
+# システム
+.DS_Store
+Thumbs.db
+
+# 環境変数 (Example 除く)
+.env*
+!.env.example
+# Cloudflare Workers シークレット定義 (Example 除く)
+.dev.vars*
+!.dev.vars.example
+
+# npm
+node_modules/
+# Vite : 現状は出力されないが Vite のデフォルト値 `dist/` などを塞いでおく
+dist/
+build/
+# Vitest : カバレッジレポートの出力先
+.vitest/
+# `cf` CLI・Wrangler CLI
+.cloudflare/
+.wrangler/
+
+# Miniflare 使用時のデータ置き場
+.miniflare/

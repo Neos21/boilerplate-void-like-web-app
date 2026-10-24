@@ -1,0 +1,26 @@
+/* TailwindCSS を使用する */
+@import 'tailwindcss' source("./");
+
+/* daisyUI を使用する */
+@plugin "daisyui" {
+  themes: light --default; /* ライトテーマのみにする */
+  /* NOTE : 容量削減のためには `include` 指定を書くと良い */
+}
+
+:root {
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Noto Sans CJK JP', Meiryo, sans-serif, 'Apple Color Emoji',
+    'Noto Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-mono: 'Noto Sans Mono CJK JP', Osaka-mono, 'MS Gothic', Menlo, Consolas, Courier, 'Courier New', monospace, 'Apple Color Emoji', 'Noto Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+/* NOTE : `@layer base` 内に入れると daisyUI の設定に負けるので入れないでおく */
+html {
+  @apply h-full cursor-default scrollbar-gutter-stable break-all;
+
+  text-decoration-skip-ink: none;
+}
+
+body {
+  @apply h-full;
+}

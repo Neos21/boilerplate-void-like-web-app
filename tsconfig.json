@@ -1,0 +1,70 @@
+// TypeScript 設定
+{
+  // 型チェック対象とするディレクトリ・ファイルを指定する
+  "include": [
+    // 設定ファイルを含めた本プロジェクト全体の TypeScript ファイルを対象にする (`allowJs` 未指定のため `.js`・`.mjs` は対象外)
+    "**/*",
+    // `cf` が出力する型ファイルも対象にする
+    ".cloudflare/types/**/*"
+  ],
+  // 型チェック対象外とするディレクトリ・ファイルを指定する
+  "exclude": [
+    // npm パッケージ
+    "node_modules",
+    // Vite のビルド出力 (現状は `.cloudflare/output/` が使用される)
+    ".cloudflare/output",
+    "build",
+    "dist",
+    // Cloudflare・Wrangler・Miniflare のローカル実行データ (生成型の `.cloudflare/types/` は除外しない)
+    ".cloudflare/state",
+    ".wrangler",
+    ".miniflare",
+    // Vitest のカバレッジレポートなど
+    ".vitest"
+  ],
+  // コンパイラオプション
+  "compilerOptions": {
+    // コンパイル時に使用する標準ライブラリを指定する
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    // 自動で読み込む型定義を指定する : `vite/client` は `import.meta.env` などに対応する
+    "types": ["node", "vite/client"],
+    // 出力する JavaScript のバージョンを指定する
+    "target": "ES2023",
+    // 出力するモジュール形式を指定する : `esnext` とすると ESModules (`import`・`export`) をそのまま使う
+    "module": "esnext",
+    // モジュールの解決方法を指定する : `bundler` とすると Vite バンドラ前提での解決とする
+    "moduleResolution": "bundler",
+    // JSX の変換方法を指定する : `react-jsx` とすると React v17 以降の JSX 変換となり `import React` が必要なくなる
+    "jsx": "react-jsx",
+    // TypeScript (`tsc`) によるファイル生成をしない
+    "noEmit": true,
+    // CommonJS モジュールを ESModules として扱いやすくする
+    "esModuleInterop": true,
+    // `import`・`export` をそのまま残しバンドラに任せる
+    "verbatimModuleSyntax": true,
+    // `import` で JSON ファイルをインポートできるようにする
+    "resolveJsonModule": true,
+    // `.d.ts` ファイルのチェックをスキップする
+    "skipLibCheck": true,
+    // 厳密な型チェックを行う
+    "strict": true,
+    // 配列・インデックスシグネチャによるアクセス結果に `undefined` の可能性を含める
+    "noUncheckedIndexedAccess": true,
+    // 省略可能なプロパティについて、省略と明示的な `undefined` の代入を区別する
+    "exactOptionalPropertyTypes": true,
+    // 基底クラスのメンバーを上書きする際に `override` を要求する
+    "noImplicitOverride": true,
+    // 値を返す関数で、一部の経路だけ戻り値が抜けることを検出する
+    "noImplicitReturns": true,
+    // 副作用のみの `import` も参照先を検査する (CSS の型宣言は `vite/client` が提供する)
+    "noUncheckedSideEffectImports": true,
+    // ファイル名の大文字・小文字の不一致を検出する
+    "forceConsistentCasingInFileNames": true,
+    // `import`・`export` がないファイルもモジュールとして扱い、意図しないグローバル宣言を防ぐ
+    "moduleDetection": "force",
+    // 削除可能な構文のみ許可する (`enum` や `namespace` を禁止する)
+    "erasableSyntaxOnly": true,
+    // `import` 文に拡張子を記述しても許可する
+    "allowImportingTsExtensions": true
+  }
+}
